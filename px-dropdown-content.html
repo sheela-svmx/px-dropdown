@@ -418,11 +418,11 @@
      */
     _openTriggerChanged(newTrigger, oldTrigger) {
       if (oldTrigger && oldTrigger instanceof HTMLElement) {
-        oldTrigger.removeEventListener('tap', this._handleOpenTriggerTappedBound);
+        Polymer.Gestures.remove(oldTrigger, 'tap', this._handleOpenTriggerTappedBound);
         oldTrigger.removeEventListener('clear-tapped', this._handleClearTappedBound);
       }
       if (newTrigger && newTrigger instanceof HTMLElement) {
-        newTrigger.addEventListener('tap', this._handleOpenTriggerTappedBound, false);
+        Polymer.Gestures.add(newTrigger, 'tap', this._handleOpenTriggerTappedBound);
         newTrigger.addEventListener('clear-tapped', this._handleClearTappedBound, false);
       }
     },
