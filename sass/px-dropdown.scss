@@ -109,7 +109,7 @@ $inuit-enable-btn--primary: true;
   flex-grow: 1;
   overflow-y: auto;
 }
-.dropdown-option {
+.dropdown-option, .select-all {
   padding-left: var(--px-dropdown-item-padding, $inuit-base-spacing-unit--small);
   padding-right: var(--px-dropdown-item-padding, $inuit-base-spacing-unit--small);
   padding-top: var(--px-dropdown-item-padding);
@@ -124,7 +124,7 @@ $inuit-enable-btn--primary: true;
   &.focused {
     background-color: var(--px-dropdown-bg-color--hover, lightgray);
   }
-  &.iron-selected {
+  &.iron-selected, &.all-selected {
     background-color: var(--px-dropdown-bg-color--selected, blue);
     color: var(--px-dropdown-text-color--selected, white);
     .select-icon {
@@ -143,10 +143,14 @@ $inuit-enable-btn--primary: true;
     }
   }
 }
-:host([mobile]) .dropdown-option {
+.select-all {
+  border-top: 1px solid var(--px-dropdown-border-color, gray);
+  border-bottom: 1px solid var(--px-dropdown-border-color, gray);
+}
+:host([mobile]) .dropdown-option, :host([mobile]) .select-all {
   padding: var(--px-dropdown-item-padding, $inuit-base-spacing-unit);
   height: var(--px-dropdown-item-height, 4rem);
-  &.iron-selected {
+  &.iron-selected, &.all-selected {
     background-color: var(--px-dropdown-bg-color--selected--mobile, #EEE);
     color: var(--px-dropdown-text-color, black);
     border-left: 5px solid var(--px-dropdown-bg-color--selected, blue);

@@ -107,7 +107,6 @@ Custom property | Description
           disabled="[[disabled]]"
           hide-chevron="[[hideChevron]]"
           display-value="[[displayValue]]"
-          disable-clear="[[disableClear]]"
           selected="[[selected]]"
           selected-values="[[selectedValues]]"
           button-style="[[buttonStyle]]"
@@ -208,18 +207,6 @@ Custom property | Description
         notify: true,
         value: 'Select',
         observer: '_resetMinWidth'
-      },
-      /**
-       * If set to true, users are unable to clear out the dropdown
-       * once a selection has been made. Useful for required single-select
-       * dropdowns where an empty state would be undesirable. Not recommended
-       * for multi-select dropdowns, as it means the user will simply lose the ability
-       * to quickly deselect all checked options (there is currently no mechanism
-       * which requires a user to select at least one option).
-       */
-      disableClear: {
-        type: Boolean,
-        value: false
       },
       /**
        * If set to true, users can still open the dropdown and click on items,
@@ -481,8 +468,8 @@ Custom property | Description
           return {
             'en': {
               "selected": "selected",
-              "Clear": "Clear",
-              "Apply": "Apply"
+              "Apply": "Apply",
+              "Select All": "Select All"
             }
           }
         }
@@ -556,6 +543,22 @@ Custom property | Description
       Polymer.RenderStatus.afterNextRender(this, () => {
         this.$.content.style.minWidth = window.getComputedStyle(this.$.trigger).width;
       });
+    },
+    /**
+    * Selects all of the non-disabled items in a multi-select dropdown.
+    */
+    selectAll: function() {
+      if(this.multi) {
+        this.$.content._selectAll();
+      }
+    },
+    /**
+    * Deselects all of the items in a multi-select dropdown.
+    */
+    deselectAll: function() {
+      if(this.multi) {
+        this.$.content._deselectAll();
+      }
     },
     /**
      * Finds the element in the the trigger slot. If the developer passed an
