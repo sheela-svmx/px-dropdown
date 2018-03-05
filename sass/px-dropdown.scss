@@ -144,8 +144,10 @@ $inuit-enable-btn--primary: true;
   }
 }
 .select-all {
-  border-top: 1px solid var(--px-dropdown-border-color, gray);
   border-bottom: 1px solid var(--px-dropdown-border-color, gray);
+}
+:host([search-mode]) .select-all {
+  border-top: 1px solid var(--px-dropdown-border-color, gray);
 }
 :host([mobile]) .dropdown-option, :host([mobile]) .select-all {
   padding: var(--px-dropdown-item-padding, $inuit-base-spacing-unit);
