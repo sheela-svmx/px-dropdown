@@ -58,7 +58,8 @@
           selected="{{selected}}"
           selected-values="{{selectedValues}}"
           selected-items="{{selectedItems}}"
-          attr-for-selected="{{selectBy}}">
+          attr-for-selected="{{selectBy}}"
+          selectable=".dropdown-option">
           <template is="dom-if" if="{{multi}}">
             <div class$="select-all {{_getSelectAllClass(_allSelected)}}" on-tap="_handleSelectAllTapped">
               <template is="dom-if" if="{{_showCheckmark(multi,mobile)}}">
@@ -450,7 +451,6 @@
       this._allSelected = true;
     },
     _deselectAll: function() {
-      this.set('selected', null);
       this.set('selectedValues', []);
       this._allSelected = false;
     },
