@@ -1,3 +1,8 @@
+v4.7.10
+==================
+* Add margin to both sides of icon so we solve the space issue when rtl plus
+* not provide browser specific fixes which dont have IE support
+
 v4.7.9
 ==================
 * Fixed Dropdown icon spacing issue when the rendering direction is "rtl" Right-To-Left.
