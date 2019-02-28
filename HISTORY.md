@@ -1,3 +1,7 @@
+# v4.9.4
+
+- Re-add code that was removed that caused regression in padding.
+
 # v4.9.3
 
 - Use margin right and left to avoid browser specif prefix fix for rtl space issue
